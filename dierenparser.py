@@ -9,7 +9,7 @@ class Dier:
         self.geluid = ""
 
     def print(self):
-        print(f'Het dier heet [{self.naam}], is van soort [{self.soort}], heeft [{self.aantalpoten}] poten, is [{self.kleur}] en maakt dit geluid: [{self.geluid}]!')    
+        print(f'Het dier heet [{self.naam}], is van soort [{self.soort}], heeft [{self.aantalPoten}] poten, is [{self.kleur}] en maakt dit geluid: [{self.geluid}]!')    
 
 
 def parse_line(line):
@@ -17,7 +17,7 @@ def parse_line(line):
     d = Dier()
     d.naam = naam
     d.soort = soort
-    d.aantalpoten = int(aantalpoten)
+    d.aantalPoten = int(aantalpoten)
     d.kleur = kleur
     d.geluid = geluid
     print(f'Parsed: [{naam}] [{soort}] [{aantalpoten}] [{kleur}] [{geluid}]')
