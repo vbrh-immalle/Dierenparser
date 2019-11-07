@@ -1,29 +1,22 @@
+from dataclasses import dataclass
 
+
+@dataclass
 class Dier:
-
-    def __init__(self):
-        self.naam = ""
-        self.soort = ""
-        self.aantalPoten = 0
-        self.kleur = ""
-        self.geluid = ""
-
-    def print(self):
-        print(f'Het dier heet [{self.naam}], is van soort [{self.soort}], heeft [{self.aantalpoten}] poten, is [{self.kleur}] en maakt dit geluid: [{self.geluid}]!')    
+    naam: str
+    soort: ""
+    aantalPoten: 0
+    kleur: ""
+    geluid: ""
 
 
-def parse_line(line):
+def parse_line(line : str) -> Dier:
     naam, soort, aantalpoten, kleur, geluid = line.split(' - ')
-    d = Dier()
-    d.naam = naam
-    d.soort = soort
-    d.aantalpoten = int(aantalpoten)
-    d.kleur = kleur
-    d.geluid = geluid
-    print(f'Parsed: [{naam}] [{soort}] [{aantalpoten}] [{kleur}] [{geluid}]')
+    d = Dier(naam, soort, int(aantalpoten), kleur, geluid)
     return d
 
-def parse_text(str):
+
+def parse_text(str : str) -> [Dier]:
     dieren = []
     for line in str.splitlines():
         d = parse_line(line)
@@ -33,8 +26,14 @@ def parse_text(str):
 
 if __name__ == '__main__':
     dieren = []
+    # r = tekst lezen
+    # rb = binaire code lezen (image)
+    # w = schrijven
+    
+    # functie "open" is contentmanager
+    # dankzij with niet nodig om file te closen
     with open('dieren.txt', 'r') as f:
         dieren = parse_text(f.read())
-    
+
     for dier in dieren:
-        dier.print()
+        print(dier)
